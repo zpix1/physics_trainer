@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  template: MyString
+  variables: MyString
+  formula: MyString
+
+two:
+  template: MyString
+  variables: MyString
+  formula: MyString
