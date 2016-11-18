@@ -1,0 +1,14 @@
+<% provide(:title, @trainer.name) %>
+<%= @generated_task['text'] %>
+<br>
+Правильный ответ - <%= @generated_task['true_ans'] %>
+<br>
+Вы ответили - <%= @generated_task['user_ans'] %>
+<br>
+<% if @generated_task['true_ans'] == @generated_task['user_ans'] %>
+Вы правильно решили задачу!
+<% else %>
+Вы ошиблись!
+<% end %>
+<br>
+<a href =<%= "/trainers/#{@trainer.id}"%>>Далее</a>

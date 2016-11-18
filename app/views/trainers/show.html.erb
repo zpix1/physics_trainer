@@ -1,4 +1,9 @@
 <% provide(:title, @trainer.name) %>
-<%= @task_text %>
+<%= @generated_task[:text]  %>
 <br>
-<%= @answer %>
+
+<%= form_tag "/trainers/check/"+@trainer.id.to_s  do %>
+    <!-- <%= label_tag "Kek"%> -->
+    <%= text_field_tag :user_ans %>
+    <%= submit_tag "Проверить решение" %>
+<% end %>

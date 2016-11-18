@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118115742) do
+ActiveRecord::Schema.define(version: 20161118134646) do
+
+  create_table "generated_tasks", force: :cascade do |t|
+    t.float    "user_ans"
+    t.float    "true_ans"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "template"
