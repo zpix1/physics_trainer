@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This a task generator for Phisics Trainer</title>
+</head>
+
+<body>
+    <main align="center">
+        <label for="template">Template</label>
+        <textarea id="template" onchange="genJSON();"></textarea>
+        <br>
+        <label for="variables">Variables</label>
+        <textarea id="variables" onchange="genJSON();"></textarea>
+        <br>
+        <label for="formula">Formula</label>
+        <input id="formula" onchange="genJSON();"></input>
+        <br>
+        <input id="jso" size='100' readonly>
+    </main>
+</body>
+<script>
+    function genJSON() {
+        template = document.getElementById("template").value
+        variables = document.getElementById("variables").value
+        formula = document.getElementById("formula").value
+        jso = document.getElementById("jso")
+        jso.value = JSON.stringify({
+            "template": template,
+            "variables": "{" + variables + "}",
+            "formula": formula
+        })
+        return jso.value
+    }
+</script>
+
+</html>

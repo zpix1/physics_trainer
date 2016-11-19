@@ -7,6 +7,6 @@
 <% if @generated_task['true_ans'] == @generated_task['user_ans'] %>
 <div class="right"> Вы правильно решили задачу! </div>
 <% else %>
-<div class='error'> Вы ошиблись </div>
+<div class='error'> Вы ошиблись! </div>
 <% end %>
 <%= link_to 'Далее' ,trainer_path %>
