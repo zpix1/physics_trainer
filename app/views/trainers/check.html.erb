@@ -4,11 +4,9 @@
 Правильный ответ - <%= @generated_task['true_ans'] %>
 <br>
 Вы ответили - <%= @generated_task['user_ans'] %>
-<br>
 <% if @generated_task['true_ans'] == @generated_task['user_ans'] %>
-Вы правильно решили задачу!
+<div class="right"> Вы правильно решили задачу! </div>
 <% else %>
-Вы ошиблись!
+<div class='error'> Вы ошиблись </div>
 <% end %>
-<br>
-<a href =<%= "/trainers/#{@trainer.id}"%>>Далее</a>
+<%= link_to 'Далее' ,trainer_path %>

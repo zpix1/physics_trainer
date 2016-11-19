@@ -1,4 +1,6 @@
 <% provide(:title, 'Тренажеры') %>
-<% @trainers.each do |trainer| -%>
-Тренажер - <%= link_to trainer.name.to_s ,trainer %> <br>
-<% end -%>
+<ul class="list-group">
+    <% @trainers.each do |trainer| -%>
+    <li class="list-group-item"><%= link_to trainer.name.to_s ,trainer %></li>
+    <% end -%>
+</ul>

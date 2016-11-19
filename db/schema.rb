@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118134646) do
+ActiveRecord::Schema.define(version: 20161119081056) do
 
   create_table "generated_tasks", force: :cascade do |t|
-    t.float    "user_ans"
-    t.float    "true_ans"
     t.string   "text"
+    t.float    "true_ans"
+    t.float    "user_ans"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

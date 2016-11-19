@@ -1,0 +1,19 @@
+@import "bootstrap";
+main{
+    text-align: center;
+    font-size: 300%;
+}
+
+
+// Color selections
+$error: #C20A0A;
+$right: #28C828;
+$white: #FFFFFF;
+.error{
+    background-color: $error;
+    color: $white;
+}
+
+.right {
+    background-color: $right;
+}
