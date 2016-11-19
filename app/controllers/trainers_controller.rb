@@ -6,7 +6,7 @@ class TrainersController < ApplicationController
     #!TODO Fix this! It isnt nice code!
     def check
         @trainer = Trainer.find(params[:id])
-        temp = session[@trainer.id.to_s + "ans"]
+        temp = session[@trainer.id.to_s + "_trainer"]
         temp['user_ans'] = params[:user_ans].to_f
         @generated_task = temp
     end
@@ -14,16 +14,30 @@ class TrainersController < ApplicationController
     # Shows random task from this trainer
     def show
         @trainer = Trainer.find(params[:id])
-        task = @trainer.task.sample
-        variables = json_decode(task.variables)
-        random_variables = {}
-        variables.each{ |el,var| random_variables[el] = var.sample }
+        @generated_task = get_task @trainer
+        session[@trainer.id.to_s + "_trainer"] = @generated_task
+    end
 
-        @generated_task = GeneratedTask.new(:text => (task.template % random_variables), :true_ans => (eval(task.formula % random_variables)).to_f)
-        session[@trainer.id.to_s + "ans"] = @generated_task
+    def mix_show
+        @trainers = Trainer.all
+        @generated_tasks = @trainers.map{|t| get_task t}
+        session["mix"] = @generated_tasks
+    end
+
+    def mix_check
+        temp = session["mix"]
+        temp.each_with_index{|task,i| task['user_ans'] = params['mix_'+i.to_s].to_f}
+        @generated_tasks = temp
     end
 
     private
+        def get_task(trainer)
+            task = trainer.task.sample
+            variables = json_decode(task.variables)
+            random_variables = {}
+            variables.each{ |el,var| random_variables[el] = var.sample }
+            {:text => (task.template % random_variables), :true_ans => (eval(task.formula % random_variables)).to_f}
+        end
 
         def json_decode(string)
             JSON.parse(string,:symbolize_names => true)
