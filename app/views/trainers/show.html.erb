@@ -1,8 +1,10 @@
 <% provide(:title, @trainer.name) %>
-<%= @generated_task[:text]  %>
-<br>
+
+<div class='task'>
+<%= @generated_task[:text] %>
 
 <%= form_tag trainers_check_url,autocomplete:"off" do %>
     <%= number_field_tag :user_ans %>
     <%= submit_tag "Проверить решение", class:"btn btn-large btn-primary" %>
 <% end %>
+</div>

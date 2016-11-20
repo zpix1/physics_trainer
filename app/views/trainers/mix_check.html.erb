@@ -1,6 +1,7 @@
 <% provide(:title, 'Экзамен') %>
 <% true_counter = 0 %>
 <% @generated_tasks.each_with_index do |task,i| %>
+<div class='task'>
     <% if task['true_ans'] == task['user_ans'] %>
         <% true_counter += 1 %>
         <div class="right">
@@ -11,6 +12,7 @@
             Вы ошиблись! Правильный ответ: <%= task['true_ans']%>
         </div>
     <% end %>
+</div>
 <% end %>
 Вы решили <%= true_counter %> задач из <%= @generated_tasks.length %>.
 Предполагаемая оценка <br>

@@ -1,4 +1,6 @@
 <% provide(:title, @trainer.name) %>
+
+<div class='task'>
 <%= @generated_task['text'] %>
 <br>
 Правильный ответ - <%= @generated_task['true_ans'] %>
@@ -10,3 +12,4 @@
 <div class='error'> Вы ошиблись! </div>
 <% end %>
 <%= link_to 'Далее' ,trainer_path %>
+</div>

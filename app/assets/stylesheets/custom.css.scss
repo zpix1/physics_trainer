@@ -1,22 +1,26 @@
 @import "bootstrap";
-main{
+main {
     text-align: center;
     font-size: 100%;
 }
-note{
+// Main design styles
+.note {
     font-size: 200%;
 }
-
-
+// .task{
+//     border: 5px solid gray;
+// }
+.task {
+    @extend .well;
+}
 // Color selections
 $error: #C20A0A;
 $right: #28C828;
 $white: #FFFFFF;
-.error{
+.error {
     background-color: $error;
     color: $white;
 }
-
 .right {
     background-color: $right;
 }

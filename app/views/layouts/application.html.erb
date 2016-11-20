@@ -14,9 +14,11 @@
             <%= yield %>
 
             <% if not current_page? menu_path_url %>
-            <%= button_to "В меню", menu_path_url,
+            <p class="footer">
+                <%= button_to "В меню", menu_path_url,
               :class => "btn btn-large", :method => :get %>
-            <% end %>
+                <% end %>
+            </p>
         </main>
     </body>
 </html>
