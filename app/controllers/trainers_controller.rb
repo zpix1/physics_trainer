@@ -7,7 +7,7 @@ class TrainersController < ApplicationController
     def check
         @trainer = Trainer.find(params[:id])
         temp = session[@trainer.id.to_s + "_trainer"]
-        temp['user_ans'] = params[:user_ans].to_f
+        temp[:user_ans] = params[:user_ans].to_f
         @generated_task = temp
     end
 
@@ -26,7 +26,7 @@ class TrainersController < ApplicationController
 
     def mix_check
         temp = session["mix"]
-        temp.each_with_index{|task,i| task['user_ans'] = params['mix_'+i.to_s].to_f}
+        temp.each_with_index{|task,i| task[:user_ans] = params['mix_'+i.to_s].to_f}
         @generated_tasks = temp
     end
 
@@ -38,7 +38,7 @@ class TrainersController < ApplicationController
 
     def exam_check
         temp = session["exam"]
-        temp.each_with_index{|task,i| task['user_ans'] = params['exam_'+i.to_s].to_f}
+        temp.each_with_index{|task,i| task[:user_ans] = params['exam_'+i.to_s].to_f}
         @generated_tasks = temp
     end
 
