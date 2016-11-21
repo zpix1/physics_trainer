@@ -1,7 +1,8 @@
 <% provide(:title, 'Проверка темы') %>
 <% true_counter = 0 %>
-<% @generated_tasks.each_with_index do |task,i| %>
+
 <div class='task'>
+<% @generated_tasks.each_with_index do |task,i| %>
     <% if task['true_ans'] == task['user_ans'] %>
         <% true_counter += 1 %>
         <div class="right">
@@ -12,9 +13,9 @@
             Вы ошиблись! Правильный ответ: <%= task['true_ans']%>
         </div>
     <% end %>
-</div>
 <% end %>
 
+</div>
 Вы решили <%= true_counter %> задач из <%= @generated_tasks.length %>.
 Предполагаемая оценка <br>
 <div class="node"> <%= (5*(true_counter/@generated_tasks.length))%> </div>
