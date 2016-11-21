@@ -3,7 +3,7 @@
 
 <div class='task'>
 <% @generated_tasks.each_with_index do |task,i| %>
-    <% if task[:true_ans] == task[:user_ans] %>
+    <% if task[:true_ans].round(1) == task[:user_ans].round(1) %>
         <% true_counter += 1 %>
         <div class="right">
             Вы правильно решили задачу, ответив:
