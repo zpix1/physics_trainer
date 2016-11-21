@@ -1,12 +1,12 @@
 <% provide(:title, @trainer.name) %>
 
 <div class='task'>
-<%= @generated_task['text'] %>
+<%= @generated_task[:text] %>
 <br>
-Правильный ответ - <%= @generated_task['true_ans'] %>
+Правильный ответ - <%= @generated_task[:true_ans] %>
 <br>
-Вы ответили - <%= @generated_task['user_ans'] %>
-<% if @generated_task['true_ans'] == @generated_task['user_ans'] %>
+Вы ответили - <%= @generated_task[:user_ans] %>
+<% if @generated_task[:true_ans] == @generated_task[:user_ans] %>
 <div class="right"> Вы правильно решили задачу! </div>
 <% else %>
 <div class='error'> Вы ошиблись! </div>

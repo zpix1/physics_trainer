@@ -24,5 +24,5 @@
 <%= @generated_tasks.length %>. Предполагаемая оценка
 <br>
 <div class="note">
-    <%= (5*(true_counter/@generated_tasks.length))%>
+    <%= get_note @generated_tasks.length, true_counter %>
 </div>

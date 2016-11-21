@@ -17,4 +17,4 @@
 </div>
 Вы решили <%= true_counter %> задач из <%= @generated_tasks.length %>.
 Предполагаемая оценка <br>
-<div class="note"> <%= (5*(true_counter/@generated_tasks.length))%> </div>
+<div class="note"> <%= get_note @generated_tasks.length, true_counter %> </div>
