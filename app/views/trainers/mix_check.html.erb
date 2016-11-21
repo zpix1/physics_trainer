@@ -1,19 +1,28 @@
 <% provide(:title, 'Экзамен') %>
 <% true_counter = 0 %>
-<% @generated_tasks.each_with_index do |task,i| %>
+
 <div class='task'>
+    <% @generated_tasks.each_with_index do |task,i| %>
     <% if task['true_ans'] == task['user_ans'] %>
-        <% true_counter += 1 %>
-        <div class="right">
-            Вы правильно решили задачу, ответив: <%= task['true_ans']%>
-        </div>
-        <% else %>
-        <div class='error'>
-            Вы ошиблись! Правильный ответ: <%= task['true_ans']%>
-        </div>
+    <% true_counter += 1 %>
+    <div class="right">
+        Вы правильно решили задачу, ответив:
+        <%= task['true_ans']%>
+    </div>
+<% else %>
+    <div class='error'>
+        Вы ошиблись! Правильный ответ:
+        <%= task['true_ans']%>
+    </div>
+    <% end %>
+
     <% end %>
 </div>
-<% end %>
-Вы решили <%= true_counter %> задач из <%= @generated_tasks.length %>.
-Предполагаемая оценка <br>
-<note> <%= (5/(@generated_tasks.length/true_counter))%> </note>
+Вы решили
+<%= true_counter %>
+задач из
+<%= @generated_tasks.length %>. Предполагаемая оценка
+<br>
+<div class="node">
+    <%= (5*(true_counter/@generated_tasks.length))%>
+</div>

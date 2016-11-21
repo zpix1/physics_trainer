@@ -1,7 +1,7 @@
 <% provide(:title, 'Тренажеры') %>
 <ul class="list-group">
     <% @trainers.each do |trainer| -%>
-    <li class="list-group-item"><%= link_to trainer.name.to_s ,trainer %></li>
+    <li class="list-group-item"><%= link_to trainer.name.to_s, trainer %><sup class="text-right"><%= link_to 'Все задачи',show_exam_path(trainer)%></sup></li>
     <% end -%>
-    <li class="list-group-item list-group-item-info"><%= link_to "Экзамен", show_mix_path %></li>
+    <li class="list-group-item list-group-item-info">Тест по всем темам</li>
 </ul>
