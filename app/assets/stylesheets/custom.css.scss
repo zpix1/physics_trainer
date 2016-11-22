@@ -7,9 +7,7 @@ main {
 .note {
     font-size: 200%;
 }
-// .task{
-//     border: 5px solid gray;
-// }
+
 .task {
     @extend .well;
 }
