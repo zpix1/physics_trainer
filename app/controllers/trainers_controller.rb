@@ -7,7 +7,7 @@ class TrainersController < ApplicationController
     def check
         @trainer = Trainer.find(params[:id])
         temp = session[@trainer.id.to_s + "_trainer"]
-        temp[:user_ans] = params[:user_ans].to_f
+        temp[:user_ans] = params[:user_ans].to_f.round(1)
         @generated_task = temp
     end
 
@@ -26,7 +26,7 @@ class TrainersController < ApplicationController
 
     def mix_check
         temp = session["mix"]
-        temp.each_with_index{|task,i| task[:user_ans] = params['mix_'+i.to_s].to_f}
+        temp.each_with_index{|task,i| task[:user_ans] = params['mix_'+i.to_s].to_f.round(1)}
         @generated_tasks = temp
     end
 
@@ -38,7 +38,7 @@ class TrainersController < ApplicationController
 
     def exam_check
         temp = session["exam"]
-        temp.each_with_index{|task,i| task[:user_ans] = params['exam_'+i.to_s].to_f}
+        temp.each_with_index{|task,i| task[:user_ans] = params['exam_'+i.to_s].to_f.round(1)}
         @generated_tasks = temp
     end
 
@@ -48,7 +48,7 @@ class TrainersController < ApplicationController
             variables = json_decode(task.variables)
             random_variables = {}
             variables.each{ |el,var| random_variables[el] = var.sample }
-            {:text => (task.template % random_variables), :true_ans => (eval(task.formula % random_variables)).to_f}
+            {:text => (task.template % random_variables), :true_ans => (eval(task.formula % random_variables)).to_f.round(1)}
         end
 
         def get_all_tasks(trainer)
@@ -58,7 +58,7 @@ class TrainersController < ApplicationController
                 variables = json_decode(task.variables)
                 random_variables = {}
                 variables.each { |el,var| random_variables[el] = var.sample }
-                generated_tasks.push ({ text: (task.template % random_variables), true_ans: (eval(task.formula % random_variables)).to_f})
+                generated_tasks.push ({ text: (task.template % random_variables), true_ans: (eval(task.formula % random_variables)).to_f.round(1)})
             end
             generated_tasks
         end

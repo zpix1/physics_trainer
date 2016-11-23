@@ -3,9 +3,9 @@
 <%= form_tag check_mix_path, autocomplete:"off" do %>
 <% @generated_tasks.each_with_index do |task,i| %>
 <div class='task'>
-    <%= label_tag 'mix_'+i.to_s,task[:text] %>
+    <%= label_tag 'mix_'+i.to_s,task[:text]%>
     <br>
-    <%= number_field_tag 'mix_'+i.to_s %>
+    <%= number_field_tag 'mix_'+i.to_s ,nil ,step: 0.1%>
 </div>
 <% end %>
 <%= submit_tag "Проверить все решения", class:"btn btn-large btn-primary"%>
