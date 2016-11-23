@@ -5,7 +5,7 @@
 <div class='task'>
     <%= label_tag 'mix_'+i.to_s,task[:text]%>
     <br>
-    <%= number_field_tag 'mix_'+i.to_s ,nil ,step: 0.1%>
+    <%= number_field_tag 'mix_'+i.to_s ,nil ,step: step%>
 </div>
 <% end %>
 <%= submit_tag "Проверить все решения", class:"btn btn-large btn-primary"%>

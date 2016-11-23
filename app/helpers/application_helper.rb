@@ -15,6 +15,10 @@ module ApplicationHelper
             (5*(true_counter/all)).to_s
         end
     end
+
+    def step()
+        0.1
+    end
     # def note_tag(all,true_counter)
     #     ("Вы решили #{true_counter} задач из #{all}" + \
     #     "Предполагаемая оценка <br>" + \
