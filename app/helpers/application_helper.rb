@@ -1,6 +1,6 @@
 module ApplicationHelper
     def full_title(page_title)
-        base_title = ""
+        base_title = "PT"
         if page_title.empty?
             base_title
         else
@@ -9,10 +9,10 @@ module ApplicationHelper
     end
 
     def get_note(all,true_counter)
-        if (5*(true_counter/all)) <= 2
+        if (5.0*(true_counter.to_f/all.to_f)) <= 2
             2.to_s
         else
-            (5*(true_counter/all)).to_s
+            ((5.0*(true_counter.to_f/all.to_f)).to_i).to_s
         end
     end
 
